@@ -1,0 +1,54 @@
+name: Test Automation CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '30 20 * * 1-5'      # 02:00 IST, Monday-Friday (cron runs in UTC): nightly regression
+  workflow_dispatch:             # "Run workflow" button, with a choice of tags
+    inputs:
+      tags:
+        description: 'Cucumber tag expression, e.g. @smoke or @claimcenter and not @e2e'
+        required: true
+        default: '@smoke'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # push / PR -> smoke pack, nightly schedule -> full regression, manual run -> the tags you type
+      TAGS: ${{ github.event_name == 'workflow_dispatch' && inputs.tags || (github.event_name == 'schedule' && '@smoke or @regression' || '@smoke') }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 (with Maven cache)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Run Cucumber tests (headless Chrome)
+        run: mvn -B clean test -Dcucumber.filter.tags="${{ env.TAGS }}" -Dheadless=true -Dthreads=2
+
+      - name: Upload Cucumber reports
+        if: always()                       # upload even when tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-reports
+          path: target/cucumber-reports/
+          retention-days: 14
+
+      - name: Upload failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-screenshots
+          path: target/screenshots/
+          if-no-files-found: ignore
+          retention-days: 14

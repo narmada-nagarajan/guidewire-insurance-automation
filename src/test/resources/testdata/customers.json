@@ -1,0 +1,32 @@
+{
+  "STANDARD_ADULT": {
+    "firstName": "John", "lastName": "Carter", "driverAge": 35, "state": "OH", "violations": 0,
+    "vehicleYear": 2020, "vehicleMake": "Honda", "vehicleModel": "Civic",
+    "liability": "100/300", "collision": "500", "comprehensive": false,
+    "term": "12 Months", "paymentPlan": "Full Pay"
+  },
+  "FULL_COVERAGE_FAMILY": {
+    "firstName": "Priya", "lastName": "Nair", "driverAge": 42, "state": "TX", "violations": 0,
+    "vehicleYear": 2022, "vehicleMake": "Toyota", "vehicleModel": "Camry",
+    "liability": "250/500", "collision": "250", "comprehensive": true,
+    "term": "12 Months", "paymentPlan": "Full Pay"
+  },
+  "QUARTERLY_PAYER": {
+    "firstName": "Meera", "lastName": "Iyer", "driverAge": 29, "state": "CA", "violations": 0,
+    "vehicleYear": 2019, "vehicleMake": "Ford", "vehicleModel": "Focus",
+    "liability": "100/300", "collision": "500", "comprehensive": false,
+    "term": "12 Months", "paymentPlan": "Quarterly"
+  },
+  "YOUNG_DRIVER_WITH_VIOLATION": {
+    "firstName": "Tim", "lastName": "Rookie", "driverAge": 19, "state": "CA", "violations": 1,
+    "vehicleYear": 2019, "vehicleMake": "Ford", "vehicleModel": "Focus",
+    "liability": "50/100", "collision": "1000", "comprehensive": false,
+    "term": "12 Months", "paymentPlan": "Full Pay"
+  },
+  "HIGH_RISK_DRIVER": {
+    "firstName": "Rick", "lastName": "Risky", "driverAge": 40, "state": "TX", "violations": 3,
+    "vehicleYear": 2018, "vehicleMake": "BMW", "vehicleModel": "X5",
+    "liability": "100/300", "collision": "500", "comprehensive": false,
+    "term": "12 Months", "paymentPlan": "Full Pay"
+  }
+}

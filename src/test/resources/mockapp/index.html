@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>InsureSuite Mock - PolicyCenter | ClaimCenter | BillingCenter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--
+    Training mock that behaves like a Guidewire suite (PolicyCenter + ClaimCenter + BillingCenter).
+    Element ids deliberately follow the Guidewire PCF naming style ("Screen:Panel:Field")
+    so locator strategy (By.id with colons) feels like the real product.
+  -->
+  <header id="TabBar" hidden>
+    <span class="brand">InsureSuite</span>
+    <nav>
+      <a id="TabBar:DesktopTab" href="#/desktop">Desktop</a>
+      <a id="TabBar:PolicyTab" href="#/submission/new">Policy (New Submission)</a>
+      <a id="TabBar:ClaimTab" href="#/claim/new">Claim (FNOL)</a>
+      <a id="TabBar:BillingTab" href="#/billing">Billing</a>
+      <a id="TabBar:SearchTab" href="#/search">Search</a>
+    </nav>
+    <span class="user">
+      <span id="TabBar:UserInfo"></span>
+      <a id="TabBar:Logout" href="#" data-action="logout">Log Out</a>
+    </span>
+  </header>
+
+  <div id="Loading" hidden><div class="spinner">Loading...</div></div>
+  <div id="Alert" class="" role="alert"></div>
+  <main id="content"></main>
+
+  <script src="app.js"></script>
+</body>
+</html>
