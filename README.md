@@ -1,3 +1,4 @@
+![CI](https://github.com/narmada-nagarajan/guidewire-insurance-automation/actions/workflows/ci.yml/badge.svg)
 # Guidewire-style Insurance Test Automation
 **Selenium 4 + Java 17 + Cucumber 7 (BDD) + TestNG + PicoContainer + AssertJ**
 
