@@ -1,4 +1,4 @@
-@authentication @smoke
+@authentication @smoke @regression
 Feature: User authentication
   As an insurance employee (producer, underwriter, adjuster ...)
   I want to log in with my own credentials
