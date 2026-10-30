@@ -3,6 +3,7 @@ body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f3f5f8;
 header { display: flex; align-items: center; gap: 24px; background: #0b3d6b; color: #fff; padding: 10px 24px; }
 header .brand { font-weight: 700; font-size: 18px; }
 header nav { flex: 1; display: flex; gap: 16px; }
+header[hidden] { display: none; }
 header a { color: #cfe3f7; text-decoration: none; }
 header a:hover { color: #fff; text-decoration: underline; }
 main { max-width: 980px; margin: 24px auto; padding: 0 16px; }
